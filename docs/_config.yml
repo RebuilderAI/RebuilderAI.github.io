@@ -1,0 +1,64 @@
+#theme: jekyll-theme-dinky
+remote_theme : thiagorossener/jekflix-template
+
+# Site settings
+name: RebuilderAI
+title:          RebuilderAI Tech Blog
+description:    "리빌더에이아이 테크 블로그"
+url:            "https://RebuilderAI.github.io"
+
+show_hero: true
+menu:
+  - title: Home
+    url: /
+  - title: About
+    url: /about
+  - title: Members
+    url: /staff
+  - title: Teams
+    url: /category
+  - title: Reconstruction SW(Beta)
+    url: /asd
+  - title: Publication
+    url: /publication
+  - title: News
+    url: /news
+
+categories_folder: category
+
+language: "kr"
+paginate: 12
+two_columns_layout: true
+
+google_analytics: "UA-107264403-4"
+markdown: kramdown
+highlighter: rouge
+collections:
+  authors:
+    output: true
+use_logo: false
+# Content paginator
+paginate_content:
+  enabled: true
+  debug: false
+  collections:
+    - posts
+  auto: false
+  separator: "--page-break--"
+  permalink: "/:num/"
+  seo_canonical: true
+  properties:
+    part:
+      is_generated: true
+    last:
+      is_generated: true
+    single:
+      is_generated: true
+
+
+github_username: rebuilderai
+
+# Plugins
+plugins:
+  - jekyll-paginate
+  - jekyll-paginate-content
