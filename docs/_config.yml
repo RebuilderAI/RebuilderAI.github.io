@@ -5,7 +5,7 @@ remote_theme : thiagorossener/jekflix-template
 name: RebuilderAI
 title:          RebuilderAI Tech Blog
 description:    "리빌더에이아이 테크 블로그"
-url:            "https://RebuilderAI.github.io"
+url:            "https://q10-playground.github.io"
 
 show_hero: true
 menu:
