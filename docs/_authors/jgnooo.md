@@ -1,6 +1,6 @@
 ---
 layout: author
-photo: https://avatars.githubusercontent.com/u/48865276?s=400&u=238d4a53bbf988ff089b4cffbe71b14c31b1d414&v=4
+photo: https://avatars.githubusercontent.com/u/55485826?s=400&u=a4641ab4b37ecbf7f3d33f76195db5f6a3e670c3&v=4
 name: jgnooo
 display_name: Geunho Jung
 position: AI researcher / R&D
