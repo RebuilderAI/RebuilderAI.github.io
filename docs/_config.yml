@@ -2,10 +2,10 @@
 remote_theme : thiagorossener/jekflix-template
 
 # Site settings
-name: q10-playground
+name: RebuilderAI
 title:          RebuilderAI Tech Blog
 description:    "리빌더에이아이 테크 블로그"
-url:            "https://q10-playground.github.io"
+url:            "https://RebuilderAI.github.io"
 
 show_hero: true
 menu:
@@ -56,7 +56,7 @@ paginate_content:
       is_generated: true
 
 
-github_username: q10-playground
+github_username: RebuilderAI
 
 # Plugins
 plugins:
