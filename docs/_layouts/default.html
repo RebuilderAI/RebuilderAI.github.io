@@ -5,6 +5,9 @@ layout: compress
 <!DOCTYPE html>
 <html lang="{{ site.language }}" class="no-js">
     {% include head.html %}
+    {% if page.use_math %}
+      {% include mathjax_support.html %}
+    {% endif %}
     <body class="has-push-menu">
         {% include svg-icons.html %}
         {% include header.html %}
@@ -14,4 +17,3 @@ layout: compress
         {% include footer.html %}
     </body>
 </html>
-
