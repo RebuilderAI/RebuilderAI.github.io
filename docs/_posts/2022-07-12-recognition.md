@@ -1,5 +1,5 @@
 ---
-date: 2022-07-12 18:01:01  
+date: 2022-07-12 06:00:00  
 layout: post  
 title: 리빌더AI 물체 인식 기술
 subtitle: Object recognition
