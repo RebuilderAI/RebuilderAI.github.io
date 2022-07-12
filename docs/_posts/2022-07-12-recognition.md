@@ -1,9 +1,9 @@
 ---
-date: 2022-07-12 18:00:00  
+date: 2022-07-12 18:01:01  
 layout: post  
 title: 리빌더AI 물체 인식 기술
 subtitle: Object recognition
-description: 글 설명  
+description: Object recognition technique in RebuilderAI 
 image:  https://user-images.githubusercontent.com/36464983/178456743-5e9f52b0-cabe-42cd-8c48-18845a456944.png
 category: Object Recognition
 tags:
