@@ -4,7 +4,7 @@ layout: post
 title: 리빌더AI 물체 인식 기술
 subtitle: Image recongnition
 description: 글 설명  
-image:  https://user-images.githubusercontent.com/36464983/178453329-fd570a97-3753-4edc-bd57-4ac24542a179.jpg
+image:  https://user-images.githubusercontent.com/36464983/178456743-5e9f52b0-cabe-42cd-8c48-18845a456944.png
 category: image recognition
 tags:
   - Salient object detection
@@ -12,6 +12,7 @@ tags:
   - Pre-processing for 3d reconstruction
 author: Sanghyeon An
 ---
+
 # 목차
 
 1. 물체 인식 문제
