@@ -1,11 +1,11 @@
 ---
-date: 2022-06-29 10:09:10  
+date: 2022-07-12 06:00:00  
 layout: post  
 title: 리빌더AI 물체 인식 기술
-subtitle: Image recongnition
-description: 글 설명  
+subtitle: Object recognition
+description: Object recognition technique in RebuilderAI 
 image:  https://user-images.githubusercontent.com/36464983/178456743-5e9f52b0-cabe-42cd-8c48-18845a456944.png
-category: image recognition
+category: Object Recognition
 tags:
   - Salient object detection
   - Transparent object detection
