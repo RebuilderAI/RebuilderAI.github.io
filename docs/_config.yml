@@ -33,6 +33,10 @@ two_columns_layout: true
 google_analytics: "UA-107264403-4"
 markdown: kramdown
 highlighter: rouge
+lsi: false
+excerpt_separator: "\n\n"
+incremental: false
+
 collections:
   authors:
     output: true
