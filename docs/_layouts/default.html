@@ -6,7 +6,8 @@ layout: compress
 <html lang="{{ site.language }}" class="no-js">
     {% include head.html %}
     {% if page.use_math %}
-      {% include mathjax_support.html %}
+      <!-- {% include mathjax_support.html %} -->
+        <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
     {% endif %}
     <body class="has-push-menu">
         {% include svg-icons.html %}
