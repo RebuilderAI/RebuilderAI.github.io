@@ -10,7 +10,7 @@ tags:
   - Salient object detection
   - Transparent object detection
   - Pre-processing for 3d reconstruction
-author: Sanghyeon An
+author: ansh941
 ---
 
 # 목차
