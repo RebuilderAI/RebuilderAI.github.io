@@ -1,0 +1,14 @@
+---
+date: 2022-07-19 16:00:00  
+layout: post  
+title: Highly Accurate Dichotomous Image Segmentation
+subtitle: Salient Object Detection
+description: Salient Object Detection model in ECCV 2022
+image:  https://user-images.githubusercontent.com/36464983/178456743-5e9f52b0-cabe-42cd-8c48-18845a456944.png
+category: Salient Object Detection
+tags:
+  - Salient object detection
+  - Evaluation Metric
+  - U^2-Net
+author: ansh941
+---
