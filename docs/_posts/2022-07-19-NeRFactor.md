@@ -52,6 +52,18 @@ Surface point는 그림 1)에서처럼 Visibility, BRDF, Albedo, Normal을 계�
 
 두번째로, Visibility를 NeRF의 density로부터 계산합니다. 마찬가지로, 그림 3)과 같이 Noise가 발생하기 때문에 Visibility MLP를 통해 Re-parameterize하고, 식 3)을 통해 최적화됩니다.
 
+![visibility](https://user-images.githubusercontent.com/55485826/179678594-5592db97-1179-4e6b-93fc-79c6b8cb2411.png)
+    _그림 3) Light visibility_
+
+![visibility_loss](https://user-images.githubusercontent.com/55485826/179678584-c10db7ca-9a70-48f3-8fe8-7cbc2747ace4.png)
+    _식 3) Visibility loss function_
 
 ##### Reflectance
 ---
+Reflectance를 모델링하기 위해, 먼저 Albedo MLP를 통해 입력 Surface location에서의 Albedo를 학습하였습니다.
+
+![albedo_loss](https://user-images.githubusercontent.com/55485826/179681138-46331815-9df8-4464-a7da-1c8b13801715.png)
+    _식 4) Albedo loss_
+
+다음으로, BRDF를 표현하기위해 먼저 그림 1)에서처럼 BRDF identity MLP를 통해 Latent code를 계산하고, BRDF MLP의 입력으로 사용됩니다. BRDF MLP는 Generative Latent Optimization approach (MERL 데이터셋으로 Pre-trained)를 활용해 Latent code와 Albedo 그리고 입사각과 반사각을 Rusinkiewicz 좌표로 변환하여 입력으로 받고 Reflectance를 계산합니다.
+
