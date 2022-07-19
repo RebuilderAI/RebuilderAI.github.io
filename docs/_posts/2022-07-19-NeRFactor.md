@@ -27,3 +27,9 @@ NeRFactor(Neural Factorization)은 3D neural field라는 것을 복원하기위�
 ---
 ![main](https://user-images.githubusercontent.com/55485826/179673208-34d8cb40-2912-4446-a34d-58a36a357953.png)
     _그림 1) NeRFactor model_
+
+##### Assuming
+---
+>    1. Input: Multi-view 이미지 + Camera
+>    2. Output : Surface normal, Light visibility, Albedo, Reflectance
+>    3. One unknown illumination condition
