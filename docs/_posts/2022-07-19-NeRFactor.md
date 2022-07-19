@@ -29,7 +29,6 @@ NeRFactor(Neural Factorization)은 3D neural field라는 것을 복원하기위�
     _그림 1) NeRFactor model_
 
 ##### Assuming
----
 >    1. Input: Multi-view 이미지 + Camera
 >    2. Output : Surface normal, Light visibility, Albedo, Reflectance
 >    3. One unknown illumination condition
@@ -51,5 +50,8 @@ Surface point는 그림 1)에서처럼 Visibility, BRDF, Albedo, Normal을 계�
 ![normal_loss](https://user-images.githubusercontent.com/55485826/179677722-6624448c-6537-49d1-ba0c-ebf4f27f891c.png)
     _식 2) Normal loss function_
 
-#####
+두번째로, Visibility를 NeRF의 density로부터 계산합니다. 마찬가지로, 그림 3)과 같이 Noise가 발생하기 때문에 Visibility MLP를 통해 Re-parameterize하고, 식 3)을 통해 최적화됩니다.
+
+
+##### Reflectance
 ---
