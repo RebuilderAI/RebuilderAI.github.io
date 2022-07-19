@@ -33,3 +33,23 @@ NeRFactor(Neural Factorization)은 3D neural field라는 것을 복원하기위�
 >    1. Input: Multi-view 이미지 + Camera
 >    2. Output : Surface normal, Light visibility, Albedo, Reflectance
 >    3. One unknown illumination condition
+
+##### Shape
+---
+Input으로 Multi-view 이미지와 Camera를 입력으로 받으면, NeRF(최적화 완료된 상태)를 통해 Initial geometry를 먼저 계산합니다. 위에서 언급한대로, 최적화된 NeRF를 통해 Density를 계산하고 Continuous surface representation으로써 사용하게 됩니다. 자세하게 설명하면, NeRF를 통해 Density를 계산하고 이를 통해 Depth(Distance t)를 계산한 후에 Surface point를 계산합니다 (아래 식).
+
+![surface_point](https://user-images.githubusercontent.com/55485826/179676591-f9e390f5-7324-4a42-917d-98ad51cdeb4a.png)
+    _식 1) Surface point_
+
+Surface point는 그림 1)에서처럼 Visibility, BRDF, Albedo, Normal을 계산하기위한 MLP의 입력으로 사용됩니다.
+
+먼저, Normal을 구하기 위해 NeRF의 density의 Gradient를 계산합니다. 이 방법을 통해 Normal을 계산하면 그림 2)와 같이 Artifact가 발생하기 때문에 Normal MLP를 통해 Re-parameterize하고, 식 2)를 통해 최적화됩니다.
+
+![normal](https://user-images.githubusercontent.com/55485826/179677256-efc66c4d-611c-4b29-9369-43861367c9b9.png)
+    _그림 2) Surface normal_
+
+![normal_loss](https://user-images.githubusercontent.com/55485826/179677722-6624448c-6537-49d1-ba0c-ebf4f27f891c.png)
+    _식 2) Normal loss function_
+
+#####
+---
