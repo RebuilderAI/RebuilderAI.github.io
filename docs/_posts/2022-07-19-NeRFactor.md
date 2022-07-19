@@ -67,3 +67,11 @@ Reflectance를 모델링하기 위해, 먼저 Albedo MLP를 통해 입력 Surfac
 
 다음으로, BRDF를 표현하기위해 먼저 그림 1)에서처럼 BRDF identity MLP를 통해 Latent code를 계산하고, BRDF MLP의 입력으로 사용됩니다. BRDF MLP는 Generative Latent Optimization approach (MERL 데이터셋으로 Pre-trained)를 활용해 Latent code와 Albedo 그리고 입사각과 반사각을 Rusinkiewicz 좌표로 변환하여 입력으로 받고 Reflectance를 계산합니다.
 
+##### Rendering
+---
+지금까지 과정을 통해 계산한, Surface normal, Visibility, Albedo, BRDF, Lighting을 이용해 최종 Color를 Rendering합니다. Rendering은 Rendering equation을 통해 계산하며 식은 아래와 같습니다.
+
+![rendering_eq](https://user-images.githubusercontent.com/55485826/179683499-2109de78-7254-47a9-9cc7-2b056b0da4de.png)
+    _식 5) Rendering equation_
+
+최종 Loss는 식 1) ~ 식 4)를 더한 Reconstuction loss로 활용됩니다.
