@@ -7,9 +7,9 @@ description: SIGGRAPH ASIA 2021
 image: https://user-images.githubusercontent.com/55485826/179668889-de983eb0-1483-473d-8de2-8269e372d2f2.png
 category: Reconstruction, Re-lighting, Material editing
 tags:
-  - vision
-  - 3d reconstruction
-  - graphics
+  - Vision
+  - 3D reconstruction
+  - Graphics
 author: jgnooo
 ---
 
