@@ -2,7 +2,7 @@
 date: 2022-07-27
 layout: post  
 title: 렌더 스튜디오를 위한 배경에셋 추천 기술 개발 
-subtitle: Project Review
+subtitle: CLIP-Based-Recommendation-Algorithms
 description:   
 image:  
 category: Zero-shot, image to text generation  
@@ -11,8 +11,6 @@ tags:
   - CLIP 
 author: Gwan Hyeong Koo, Sehyun Kim
 ---
-
-# 렌더 스튜디오를 위한 배경에셋 추천 기술 개발
 
 최종 편집: 2022년 7월 27일 오전 10:47
 
@@ -39,12 +37,12 @@ author: Gwan Hyeong Koo, Sehyun Kim
 3. 해당 text와 가장 적합한 배경 에셋을 검색한 후 제품과 함께 배경 에셋을 3D 모델로 렌더링하여 제품 판매용 렌더링 이미지를 생성한다.
 
 <p align="center">
-    <img src="https://user-images.githubusercontent.com/48863707/181145573-f9e2822d-cf15-4d28-9da3-7ab283abdea0.png" width="60%" height="60%">
+    <img src="https://user-images.githubusercontent.com/48863707/181145573-f9e2822d-cf15-4d28-9da3-7ab283abdea0.png" width="80%" height="80%">
     <p align="center">VRIN 앱을 사용했을 때 배경 추천 프로세스</p>
 </p>
 
 <p align="center">
-    <img src="https://user-images.githubusercontent.com/48863707/181145532-01b59470-5048-438a-bcba-ad34969dd3d0.png" width="60%" height="60%">
+    <img src="https://user-images.githubusercontent.com/48863707/181145532-01b59470-5048-438a-bcba-ad34969dd3d0.png" width="80%" height="80%">
     <p align="center">구체적인 추천 과정</p>
 </p>
 
@@ -54,12 +52,12 @@ author: Gwan Hyeong Koo, Sehyun Kim
 
 ![Untitled (5)](https://user-images.githubusercontent.com/48863707/181146131-3f686988-5ef1-4755-99b9-3cebe4d3fab7.png)
 
-**<핵심 아이디어>**
+<핵심 아이디어>
 
 - VLM(Visual-Linguistic Model: “눈으로 보고 생각하기”), LM(Linguistic Model: 입으로 말하는 과정)을 수행
 - vision-text 결과를 language model로 재검토
 
-**<선정 이유>**
+<선정 이유>
 
 - 거대한 규모의 pretrained model (BERT, GPT3, CLIP)을 활용, 최고 성능의 결과 기대
 - 상품과 배경의 분위기가 학습이 가능한지 확인이 쉬움
