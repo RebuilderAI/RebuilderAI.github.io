@@ -50,26 +50,29 @@ author: Gwan Hyeong Koo, Sehyun Kim
 ### AI 모델 리서치
 영상정보와 텍스트를 연결시켜 이해하는 feature embedding 모델들을 찾아보았고, 최종적으로 Socratic Model 구조를 선정하였습니다.  
 
-![Untitled (5)](https://user-images.githubusercontent.com/48863707/181146131-3f686988-5ef1-4755-99b9-3cebe4d3fab7.png)
 
-<핵심 아이디어>
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/48863707/181146131-3f686988-5ef1-4755-99b9-3cebe4d3fab7.png" width="100%" height="100%">
+    <p align="center">Socratic Model 구조</p>
+</p>
+
+**<핵심 아이디어>**
 
 - VLM(Visual-Linguistic Model: “눈으로 보고 생각하기”), LM(Linguistic Model: 입으로 말하는 과정)을 수행
 - vision-text 결과를 language model로 재검토
 
-<선정 이유>
+**<선정 이유>**
 
 - 거대한 규모의 pretrained model (BERT, GPT3, CLIP)을 활용, 최고 성능의 결과 기대
 - 상품과 배경의 분위기가 학습이 가능한지 확인이 쉬움
 - Multiple modalities(language, audio)를 통해 특정 specific modality (vision)의 denoise를 예방(마치 사람이 특정 물체를 보고 말로 표현하는 과정과 유사)
-
 
 ### CLIP을 이용해 text를 생성하고, 이를 다시 GPT-3로 가다듬으면..?
 
 Socratic model 이라는 논문에서는 CLIP을 이용해 여러 text를 생성하고, 이를 다시 GPT-3로 가다듬어 아주 매끄러운 문장을 생성해내는 것을 보여주었습니다. 저희도 Socratic model 구조와 비슷하게 물체에 대한 정보 text를 4개 이상 뽑아내었고, 해당 문장들을 다시 GPT-3로 가다듬어 매끄러운 문장으로 만들고자 했습니다. 그 결과..
 
 <p align="center">
-    <img src="https://user-images.githubusercontent.com/48863707/181146221-c88da3ca-6e06-4bfa-a1a1-e5d81190e090.png" width="20%" height="20%">
+    <img src="https://user-images.githubusercontent.com/48863707/181146221-c88da3ca-6e06-4bfa-a1a1-e5d81190e090.png" width="30%" height="30%">
     <p align="center">향수 이미지</p>
 </p>
 
@@ -80,9 +83,7 @@ Image Caption 결과(영문): “**광활하고 건조한 풍경 속에 있는 �
 
 이는 GPT-3가 CLIP으로 구해낸 형식이 있는 문장들을 다시 매끄럽게 잘 표현했음을 보여주었습니다.
 
-
-
-### LM model 수정 → “물체를 판매할 때 어떤 스튜디오/ 어떤 조명과 / 어떤 배경과 / 어떤 분위기로 해야하는지?” 를 고려했다!
+## LM model 수정 → “물체를 판매할 때 어떤 스튜디오/ 어떤 조명과 / 어떤 배경과 / 어떤 분위기로 해야하는지?” 를 고려했다!
 
 위에서 얻은 결과는 단순히 물체를 표현하는 문장에 지나지 않습니다. 저희가 원하는 결과는 이 물건이 판매될 때 어떤 스튜디오 배경이 가장 어울리는가? 입니다,, 따라서 LM이 이러한 상황을 이해하도록 수정했고, 결과는 다음과 같이 수정되었습니다. 
 
@@ -95,16 +96,14 @@ Image Caption 결과(영문): “**광활하고 건조한 풍경 속에 있는 �
 
 (한국어 번역) “깔끔한 라인과 밝은 조명이 돋보이는 시원하고 모던한 스튜디오가 이 아이템을 판매하기에 아주 적합합니다. 아이템을 보완할 수 있는 소품으로는 **심플한 흰색 배경**, **제품의 크기**를 잘 부각할 몇 가지 **유사한 아이템**, 그리고 색상 톤에 변화를 줄 만한 **푸른 잎사귀나 자연물**이 있습니다.”
 
-
 ### DALLE-mini를 이용한 배경 생성
 
 현재 저희가 진행하는 프로젝트는 존재하는 배경 에셋들 중 입력 이미지와 가장 어울리는 배경 에셋을 추천해주는 시스템입니다. 하지만 배경 에셋을 완전히 새로 생성해낸다면 얼마나 좋을까요? DALLE-mini를 이용해서 추천 배경도 생성해보았습니다. 물론 당장은 서비스에 적용이 힘들지만, 상용화된다면 많은 온라인 판매자들이 편리하게 사용할 것으로 생각됩니다. 더 이상 스튜디오에 가서 판매 사진을 찍지 않아도 되는 것이죠 ㅎㅎ
 
 <p align="center">
-    <img src="https://user-images.githubusercontent.com/48863707/181146396-a9c93e5d-c4a3-4015-b604-981fe3509a8e.png" width="60%" height="60%">
+    <img src="https://user-images.githubusercontent.com/48863707/181146396-a9c93e5d-c4a3-4015-b604-981fe3509a8e.png" width="100%" height="100%">
     <p align="center">추천 배경 생성</p>
 </p>
-
 
 ### 데모 사이트 제작
 
