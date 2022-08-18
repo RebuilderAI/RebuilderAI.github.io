@@ -1,8 +1,8 @@
 ---
 date: 2022-08-16 10:09:10  
 layout: post  
-title: Towards General Artificial Intelligence
-subtitle: From CLIP, Flamingo and GATO
+title: 일반 인공지능을 향하여
+subtitle: CLIP 모델부터 Flamingo, 그리고 GATO까지
 description: Brief introduction to multi-modal learning AI models
 image: https://user-images.githubusercontent.com/36873797/185295737-7d05b246-688c-4749-aeee-1632ce06496e.jpg
 category: zero-shot learning, multi-modal learning
