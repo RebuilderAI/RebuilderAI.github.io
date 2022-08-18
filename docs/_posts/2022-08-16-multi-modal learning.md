@@ -18,25 +18,25 @@ author: Gwan Hyeong Koo, Sehyun Kim
 ### 부제 : CLIP 모델부터 flamingo, 그리고 GATO까지
 
 <aside>
+  
 👦🏻 발표자 : 구관형, 김세현
 
 </aside>
 
 ## 📑 Multimodal learning이란?
-
 ---
 
 사람은 5가지의 감각기관을 통해서 다양한 형태의 데이터를 얻습니다. 이때 다양한 형태(modality)의 데이터를 “modal”이라고 합니다.
 
 <p><img src="https://user-images.githubusercontent.com/36873797/185296232-2d06d548-aa7b-453f-816a-d7a18157af34.png" align="center" style="margin-left:5px; margin-top: 5px;">
-
-![AI_logo](https://user-images.githubusercontent.com/36873797/185296907-03976064-9ae7-4b77-943d-cefc799b8c21.png)
+<p><img src="[https://user-images.githubusercontent.com/36873797/185296232-2d06d548-aa7b-453f-816a-d7a18157af34.png](https://user-images.githubusercontent.com/36873797/185296907-03976064-9ae7-4b77-943d-cefc799b8c21.png))" align="center" style="margin-left:5px; margin-top: 5px;">
 
 사람은 다양한 형태의 데이터를 통해서 상황을 인지하고 파악합니다. 눈으로 시각적인 정보를 받고 소리로 이를 판단하죠. 그럼 현재 AI는 어떻게 연구되고 있을까요?
 
 이미지를 통해 시각적인 정보를 학습하는 **“비전"** 분야는 이미지, 혹은 동영상 데이터를 통해 학습합니다. text 기반의 언어를 통해 언어를 학습하는 **“자연어"**분야는 언어를 학습합니다. 이 두가지 분야는 현재 AI의 흐름을 선도하는 연구분야입니다. 하지만 비전과 자연어 분야는 각 분야에 대해서만 고도화가 되었기에, 독립적인 분야라고 할 수 있습니다. 즉, AI 모델은 눈으로 보기만 하거나 언어를 사용하기만 하는 것이죠. 그럼 이 두 가지 분야를 합치면 어떤 일들이 가능할까요?
 
 <aside>
+  
 💡 AI 모델이 “비전"과 “자연어" 혹은 “음성" 분야를 함께 인식하면 어떤 일이 일어날까?
 
 </aside>
