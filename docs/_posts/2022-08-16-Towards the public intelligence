@@ -4,8 +4,8 @@ layout: post
 title: 일반 인공지능을 향하여
 subtitle: CLIP 모델부터 flamingo, 그리고 GATO까지
 description: 글 설명  
-image: ![CLIP_main](https://user-images.githubusercontent.com/36873797/185295737-7d05b246-688c-4749-aeee-1632ce06496e.jpg)
-category: CLIP
+image: https://user-images.githubusercontent.com/36873797/185295737-7d05b246-688c-4749-aeee-1632ce06496e.jpg
+category: zero-shot learning
 tags:
   - multi-modal learning
   - CLIP
