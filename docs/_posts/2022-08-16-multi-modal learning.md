@@ -27,6 +27,7 @@ author: Gwan Hyeong Koo, Sehyun Kim
 ---
 
 사람은 5가지의 감각기관을 통해서 다양한 형태의 데이터를 얻습니다. 이때 다양한 형태(modality)의 데이터를 “modal”이라고 합니다.
+```
 <div class="row">
   <div class="column">
     <img src="[img_snow.jpg](https://user-images.githubusercontent.com/36873797/185296232-2d06d548-aa7b-453f-816a-d7a18157af34.png)" style="width:100%">
@@ -35,7 +36,7 @@ author: Gwan Hyeong Koo, Sehyun Kim
     <img src="[img_forest.jpg](https://user-images.githubusercontent.com/36873797/185299563-f3dd4d3b-b949-4a0b-8a0a-03a236367f69.png)" style="width:100%">
   </div>
 </div>
-
+```
 사람은 다양한 형태의 데이터를 통해서 상황을 인지하고 파악합니다. 눈으로 시각적인 정보를 받고 소리로 이를 판단하죠. 그럼 현재 AI는 어떻게 연구되고 있을까요?
 
 이미지를 통해 시각적인 정보를 학습하는 **“비전"** 분야는 이미지, 혹은 동영상 데이터를 통해 학습합니다. text 기반의 언어를 통해 언어를 학습하는 **“자연어"**분야는 언어를 학습합니다. 이 두가지 분야는 현재 AI의 흐름을 선도하는 연구분야입니다. 하지만 비전과 자연어 분야는 각 분야에 대해서만 고도화가 되었기에, 독립적인 분야라고 할 수 있습니다. 즉, AI 모델은 눈으로 보기만 하거나 언어를 사용하기만 하는 것이죠. 그럼 이 두 가지 분야를 합치면 어떤 일들이 가능할까요?
