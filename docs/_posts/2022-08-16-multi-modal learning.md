@@ -28,7 +28,8 @@ author: Gwan Hyeong Koo, Sehyun Kim
 
 사람은 5가지의 감각기관을 통해서 다양한 형태의 데이터를 얻습니다. 이때 다양한 형태(modality)의 데이터를 “modal”이라고 합니다.
 
-![multi-modal](https://user-images.githubusercontent.com/36873797/185296232-2d06d548-aa7b-453f-816a-d7a18157af34.png)
+<p><img src="![multi-modal](https://user-images.githubusercontent.com/36873797/185296232-2d06d548-aa7b-453f-816a-d7a18157af34.png)" align="right">
+
 ![AI_logo](https://user-images.githubusercontent.com/36873797/185296907-03976064-9ae7-4b77-943d-cefc799b8c21.png)
 
 사람은 다양한 형태의 데이터를 통해서 상황을 인지하고 파악합니다. 눈으로 시각적인 정보를 받고 소리로 이를 판단하죠. 그럼 현재 AI는 어떻게 연구되고 있을까요?
