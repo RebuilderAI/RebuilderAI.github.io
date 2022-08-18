@@ -29,6 +29,7 @@ author: Gwan Hyeong Koo, Sehyun Kim
 사람은 5가지의 감각기관을 통해서 다양한 형태의 데이터를 얻습니다. 이때 다양한 형태(modality)의 데이터를 “modal”이라고 합니다.
 
 ![multi-modal](https://user-images.githubusercontent.com/36873797/185296232-2d06d548-aa7b-453f-816a-d7a18157af34.png)
+![AI_logo](https://user-images.githubusercontent.com/36873797/185296907-03976064-9ae7-4b77-943d-cefc799b8c21.png)
 
 사람은 다양한 형태의 데이터를 통해서 상황을 인지하고 파악합니다. 눈으로 시각적인 정보를 받고 소리로 이를 판단하죠. 그럼 현재 AI는 어떻게 연구되고 있을까요?
 
@@ -46,14 +47,10 @@ author: Gwan Hyeong Koo, Sehyun Kim
 ---
 
 저희는 CLIP 모델을 간략하게 설명하고자 합니다. CLIP은 분류(classification) 모델이지만, 단순히 이미지 데이터만 사용하지 않습니다. 여기서 분류 모델이라는 것은 어떤 사진에 고양이가 있다면 고양이가 있다고 분류해주는 모델입니다.
-
-![Untitled](%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%87%E1%85%A1%E1%86%AB%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%8B%E1%85%B3%E1%86%AF%20%E1%84%92%E1%85%A3%E1%86%BC%E1%84%92%E1%85%A1%E1%84%8B%E1%85%A7%2035afbfa0937c4a6da5f3621676255748/Untitled%202.png)
+![classification_demo](https://user-images.githubusercontent.com/36873797/185297171-a13133d1-8d3c-4ab4-892c-415c01ddd171.png)
 
 사실 위 그림에 있는 cat 이라는 표현은 숫자로 바뀌어 학습됩니다. 예를 들어, cat의 class가 50번 이라면 cat 대신에 50이라는 숫자가 one-hot vector로 바뀌고, 그것이 AI가 학습하는데 사용됩니다. 즉, “CAT”이라는 단어의 의미가 모델에서 전혀 쓰이지 않고, 단순히 분류만 해주는 것입니다. 
-
-![image classification의 과정 : image가 입력으로 들어오면, 출력으로 cat(one-hot vector)를 맞추도록 학습된다](%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%87%E1%85%A1%E1%86%AB%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%8B%E1%85%B3%E1%86%AF%20%E1%84%92%E1%85%A3%E1%86%BC%E1%84%92%E1%85%A1%E1%84%8B%E1%85%A7%2035afbfa0937c4a6da5f3621676255748/Untitled%203.png)
-
-image classification의 과정 : image가 입력으로 들어오면, 출력으로 cat(one-hot vector)를 맞추도록 학습된다
+![classification_demo2](https://user-images.githubusercontent.com/36873797/185297168-8611eeb3-6a16-443a-bbfb-4afb4a53cd40.png)
 
 <aside>
 💡 기존 분류 모델은 “CAT”이 가지는 의미론적 정보 (semantic information)을 학습하는 것이 아니라, 단순히 확률적으로 분류해주는 것에 불과하다!
@@ -62,11 +59,11 @@ image classification의 과정 : image가 입력으로 들어오면, 출력으�
 
 하지만 “자연어"를 여기에 사용해보면 어떨까요? 다시 말해서, 고양이 사진에 정답 label을 단순히 class id로 주는 것이 아니라, 어떤 문장으로 주는 것입니다. 
 
-![Untitled](%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%87%E1%85%A1%E1%86%AB%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%8B%E1%85%B3%E1%86%AF%20%E1%84%92%E1%85%A3%E1%86%BC%E1%84%92%E1%85%A1%E1%84%8B%E1%85%A7%2035afbfa0937c4a6da5f3621676255748/Untitled%204.png)
+![classification_demo3](https://user-images.githubusercontent.com/36873797/185297166-99759733-3cbc-404a-a037-75af4a2d6179.png)
 
 정답 label을 의미론적인 문장으로 주고, 이미지와 함께 학습시키는 아이디어가 바로 CLIP 논문의 전부입니다. CLIP은 이렇게 4억개의 이미지와 텍스트(caption) 쌍으로 대규모 학습했습니다. 즉, text를 통해 자연어의 supervision을 사용하여 학습한 셈이죠. 그 결과 이미지를 단순히 분류하는 것이 아니라, 의미론적인 해석이 가능해졌습니다. 
 
-![Untitled](%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%87%E1%85%A1%E1%86%AB%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%8B%E1%85%B3%E1%86%AF%20%E1%84%92%E1%85%A3%E1%86%BC%E1%84%92%E1%85%A1%E1%84%8B%E1%85%A7%2035afbfa0937c4a6da5f3621676255748/Untitled%205.png)
+![classification_demo4](https://user-images.githubusercontent.com/36873797/185297163-e575fe52-4578-4e51-9f44-6dc1691e476a.png)
 
 따라서 CLIP 모델은 위와 같이 학습 시에 배우지 않았던 것에 대해서도 예측이 가능합니다. 이를 zero-shot 이라고 하는데요, 분명이 이 강아지의 색이나 기분, 그리고 어떤 종인지에 대해 학습시키지 않았음에도 정답 label을 자연어로 학습하다 보니 잘 유추해냅니다.
 
@@ -83,11 +80,11 @@ image classification의 과정 : image가 입력으로 들어오면, 출력으�
 
 우리는 CLIP을 통해서 이제 “비전" task에서 text와 같은 의미론적인 해석이 가능하다는 사실을 알게 되었습니다. 기존 분류 모델과는 다르게, 이젠 어떤 이미지를 보고 text를 의미론적으로 해석하는게 가능한 것이죠. 그럼 이런건 어떨까요. 사용자와 사진으로 대화해보는 것입니다!!
 
-![Untitled](%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%87%E1%85%A1%E1%86%AB%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%8B%E1%85%B3%E1%86%AF%20%E1%84%92%E1%85%A3%E1%86%BC%E1%84%92%E1%85%A1%E1%84%8B%E1%85%A7%2035afbfa0937c4a6da5f3621676255748/Untitled%206.png)
+![flamingo1](https://user-images.githubusercontent.com/36873797/185297162-d855b2df-32b6-4379-b864-31fd7d250334.png)
 
 현재 많은 챗봇들은 단순히 텍스트를 통해서 소통합니다. 하지만, 우리는 CLIP을 이용해 시각적인 이미지 데이터를 의미론적으로 AI가 해석할 수 있다는걸 알았습니다. Flamingo는 여기서 착안해, 이미지와 text를 넘나드는 대화형 AI 모델을 선보였습니다. 이런 것도 가능하네요.
 
-![Untitled](%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%87%E1%85%A1%E1%86%AB%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%8B%E1%85%B3%E1%86%AF%20%E1%84%92%E1%85%A3%E1%86%BC%E1%84%92%E1%85%A1%E1%84%8B%E1%85%A7%2035afbfa0937c4a6da5f3621676255748/Untitled%207.png)
+![flamingo2](https://user-images.githubusercontent.com/36873797/185297156-106ef3bd-486d-4b5e-b029-78a5c0b6e49d.png)
 
 사용자가 입력하는 text의 흐름에 맞게 다음 text의 문맥을 유추합니다. 가령, 사람이 숫자의 덧셈을 입력하면 flamingo도 다음에는 덧셈을 대답해야지~ 라는 흐름을 알게 됩니다.
 
@@ -98,7 +95,7 @@ image classification의 과정 : image가 입력으로 들어오면, 출력으�
 
 정말 놀라운 점은, “비전” 분야에서는 단순히 한 task 에서만 AI 모델이 가능했습니다. 하지만, 이미지와 text 두 가지 modal을 사용함으로써 좀 더 범용적인 task에 적용이 가능하다는 점입니다. Flamingo는 검색 기술에 매우 활용성이 높을 것 같은데요, 예를 들어 내가 원하는 이미지의 사진을 넣고 text로 여기에 어떤 점이 비슷한 이미지를 찾아줘~ 라는 서비스에 사용 가능합니다.
 
-![Untitled](%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%87%E1%85%A1%E1%86%AB%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%8B%E1%85%B3%E1%86%AF%20%E1%84%92%E1%85%A3%E1%86%BC%E1%84%92%E1%85%A1%E1%84%8B%E1%85%A7%2035afbfa0937c4a6da5f3621676255748/Untitled%208.png)
+![omnisearch](https://user-images.githubusercontent.com/36873797/185297153-98667e52-aef4-453b-acaf-a3b322136018.png)
 
 실제로, 올해 5월부터 네이버 서치 팀에서는 “옴니서치" 서비스를 네이버 스마트렌즈에 적용했습니다. 텍스트와 이미지를 결합한 multimodality를 적극적으로 활용한 검색 기술입니다.
 
@@ -108,13 +105,13 @@ image classification의 과정 : image가 입력으로 들어오면, 출력으�
 
 구글 딥마인드는 올해 4월 29일 CVPR에 Flamingo를 제출함에 이어 5월 12일에는 GATO라는 모델을 발표합니다. (이건 그냥 아카이브에 바로 공개한거같네요..) GATO는 Flamingo의 연장선에 있다고 생각되는 모델인데요, 바로 범용적인 인공지능 모델입니다. 아타리 게임을 하고, 이미지 캡션 지정, 인간과 채팅, 로봇 팔로 컬러 블록을 쌓는 등 600여가지 기능을 갖춘 제너럴리스트(generalist) 에이전트를 “GATO”라고 이름을 지었습니다. 
 
-![Untitled](%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%87%E1%85%A1%E1%86%AB%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%8B%E1%85%B3%E1%86%AF%20%E1%84%92%E1%85%A3%E1%86%BC%E1%84%92%E1%85%A1%E1%84%8B%E1%85%A7%2035afbfa0937c4a6da5f3621676255748/Untitled%209.png)
+![gato1](https://user-images.githubusercontent.com/36873797/185297147-da29be4b-a557-4a1e-90f9-506f8b9a78d3.png)
 
 Flamingo도 한 가지 task가 아니라 여러 대화형 task가 가능했지만, GATO처럼 이렇게 다른 domain에서 task를 수행하진 못했습니다. GATO는 정말 여러가지 task를 수행할 수 있는 범용적인 인공지능 알고리즘인 셈입니다. 
 
 이렇게만 보면 GATO는 정말 인간에 가까워진 인공지능인가..? 라는 생각이 듭니다. 하지만 논문을 보면 이는 전혀 아니라는 사실을 알 수 있습니다. 
 
-![Untitled](%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%87%E1%85%A1%E1%86%AB%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%8B%E1%85%B3%E1%86%AF%20%E1%84%92%E1%85%A3%E1%86%BC%E1%84%92%E1%85%A1%E1%84%8B%E1%85%A7%2035afbfa0937c4a6da5f3621676255748/Untitled%2010.png)
+![gato2](https://user-images.githubusercontent.com/36873797/185297141-a5f42f12-dfba-412c-aa40-81e80f4b961a.png)
 
 GATO 논문은 “소문난 잔치에 먹을 게 없다"라는게 딱 어울리는데요, 사실 모든 작업들을 트랜스포머(transformer)를 통해 tokenization (토큰으로쪼개기)를 한 후, 순차적으로 일렬로 늘어놓고 예측 모델을 돌린 것입니다. GATO는 다양한 task들을 이렇게 tokenization시켜 12억개의 매개변수로 학습시켰다고 하네요.
 
