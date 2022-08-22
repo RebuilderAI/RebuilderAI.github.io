@@ -91,24 +91,24 @@ point-based network는 irregular point cloud를 바로 사용하는 것입니다
 Point-based Method는 그 자체로도 양이 많아 다음 포스팅에 이어 작성하겠습니다.<br>
 
 # Reference
-[1] Guo, Y., Wang, H., Hu, Q., Liu, H., Liu, L., & Bennamoun, M. (2020). Deep learning for 3d point clouds: A survey. *IEEE transactions on pattern analysis and machine intelligence*, *43*(12), 4338-4364.
-[2] T. Hackel, N. Savinov, L. Ladicky, J. Wegner, K. Schindler, and M. Pollefeys, “[Semantic3D.net](http://semantic3d.net/): A new large-scale point cloud classification benchmark,” ISPRS, 2017. 
-[3] J. Behley, M. Garbade, A. Milioto, J. Quenzel, S. Behnke, C. Stachniss, and J. Gall, “SemanticKITTI: A dataset for semantic scene understanding of lidar sequences,” in ICCV, 2019.
-[4] F. J. Lawin, M. Danelljan, P. Tosteberg, G. Bhat, F. S. Khan, and M. Felsberg, “Deep projective 3D semantic segmentation,” in CAIP, 2017.
-[5] A. Boulch, B. Le Saux, and N. Audebert, “Unstructured point cloud semantic labeling using deep segmentation networks.” in 3DOR, 2017.
-[6] M. Tatarchenko, J. Park, V. Koltun, and Q.-Y. Zhou, “Tangent convolutions for dense prediction in 3D,” in CVPR, 2018.
-[7] B. Wu, A. Wan, X. Yue, and K. Keutzer, “SqueezeSeg: Convolutional neural nets with recurrent crf for real-time road-object segmentation from 3D lidar point cloud,” in ICRA, 2018.
-[8] B. Wu, X. Zhou, S. Zhao, X. Yue, and K. Keutzer, “SqueezeSegV2: Improved model structure and unsupervised domain adaptation for road-object segmentation from a lidar point cloud,” in ICRA, 2019.
-[9] J. Huang and S. You, “Point cloud labeling using 3D convolutional neural network,” in ICPR, 2016.
-[10] L. Tchapmi, C. Choy, I. Armeni, J. Gwak, and S. Savarese, “SEGCloud: Semantic segmentation of 3D point clouds,” in 3DV, 2017.
-[11] H.-Y. Meng, L. Gao, Y.-K. Lai, and D. Manocha, “VV-Net: Voxel vae net with group convolutions for point cloud segmentation,” in ICCV, 2019.
-[12] B. Graham, M. Engelcke, and L. van der Maaten, “3D semantic segmentation with submanifold sparse convolutional networks,” in CVPR, 2018.
-[13] C. Choy, J. Gwak, and S. Savarese, “4D spatio-temporal convnets: Minkowski convolutional neural networks,” in CVPR, 2019.
-[14] H. Su, V. Jampani, D. Sun, S. Maji, E. Kalogerakis, M.-H. Yang, and J. Kautz, “SplatNet: Sparse lattice networks for point cloud processing,” in CVPR, 2018.
-[15] R.A.Rosu,P.Schu ̈tt,J.Quenzel,andS.Behnke,“LatticeNet:Fast point cloud segmentation using permutohedral lattices,” arXiv preprint arXiv:1912.05905, 2019.
-[16] A. Dai and M. Nießner, “3DMV: Joint 3D-multi-view prediction for 3D semantic scene segmentation,” in ECCV, 2018.
-[17] H.-Y. Chiang, Y.-L. Lin, Y.-C. Liu, and W. H. Hsu, “A unified point-based framework for 3D segmentation,” in 3DV, 2019.
-[18] M. Jaritz, J. Gu, and H. Su, “Multi-view pointNet for 3D scene understanding,” in ICCVW, 2019.
+[1] Guo, Y., Wang, H., Hu, Q., Liu, H., Liu, L., & Bennamoun, M. (2020). Deep learning for 3d point clouds: A survey. *IEEE transactions on pattern analysis and machine intelligence*, *43*(12), 4338-4364.<br>
+[2] T. Hackel, N. Savinov, L. Ladicky, J. Wegner, K. Schindler, and M. Pollefeys, “[Semantic3D.net](http://semantic3d.net/): A new large-scale point cloud classification benchmark,” ISPRS, 2017. <br>
+[3] J. Behley, M. Garbade, A. Milioto, J. Quenzel, S. Behnke, C. Stachniss, and J. Gall, “SemanticKITTI: A dataset for semantic scene understanding of lidar sequences,” in ICCV, 2019.<br>
+[4] F. J. Lawin, M. Danelljan, P. Tosteberg, G. Bhat, F. S. Khan, and M. Felsberg, “Deep projective 3D semantic segmentation,” in CAIP, 2017.<br>
+[5] A. Boulch, B. Le Saux, and N. Audebert, “Unstructured point cloud semantic labeling using deep segmentation networks.” in 3DOR, 2017.<br>
+[6] M. Tatarchenko, J. Park, V. Koltun, and Q.-Y. Zhou, “Tangent convolutions for dense prediction in 3D,” in CVPR, 2018.<br>
+[7] B. Wu, A. Wan, X. Yue, and K. Keutzer, “SqueezeSeg: Convolutional neural nets with recurrent crf for real-time road-object segmentation from 3D lidar point cloud,” in ICRA, 2018.<br>
+[8] B. Wu, X. Zhou, S. Zhao, X. Yue, and K. Keutzer, “SqueezeSegV2: Improved model structure and unsupervised domain adaptation for road-object segmentation from a lidar point cloud,” in ICRA, 2019.<br>
+[9] J. Huang and S. You, “Point cloud labeling using 3D convolutional neural network,” in ICPR, 2016.<br>
+[10] L. Tchapmi, C. Choy, I. Armeni, J. Gwak, and S. Savarese, “SEGCloud: Semantic segmentation of 3D point clouds,” in 3DV, 2017.<br>
+[11] H.-Y. Meng, L. Gao, Y.-K. Lai, and D. Manocha, “VV-Net: Voxel vae net with group convolutions for point cloud segmentation,” in ICCV, 2019.<br>
+[12] B. Graham, M. Engelcke, and L. van der Maaten, “3D semantic segmentation with submanifold sparse convolutional networks,” in CVPR, 2018.<br>
+[13] C. Choy, J. Gwak, and S. Savarese, “4D spatio-temporal convnets: Minkowski convolutional neural networks,” in CVPR, 2019.<br>
+[14] H. Su, V. Jampani, D. Sun, S. Maji, E. Kalogerakis, M.-H. Yang, and J. Kautz, “SplatNet: Sparse lattice networks for point cloud processing,” in CVPR, 2018.<br>
+[15] R.A.Rosu,P.Schu ̈tt,J.Quenzel,andS.Behnke,“LatticeNet:Fast point cloud segmentation using permutohedral lattices,” arXiv preprint arXiv:1912.05905, 2019.<br>
+[16] A. Dai and M. Nießner, “3DMV: Joint 3D-multi-view prediction for 3D semantic scene segmentation,” in ECCV, 2018.<br>
+[17] H.-Y. Chiang, Y.-L. Lin, Y.-C. Liu, and W. H. Hsu, “A unified point-based framework for 3D segmentation,” in 3DV, 2019.<br>
+[18] M. Jaritz, J. Gu, and H. Su, “Multi-view pointNet for 3D scene understanding,” in ICCVW, 2019.<br>
 
 # Footnote
 <b id="f1"><sup>1</sup></b> MLS(Mobile Laser Scanners), ALS(Aerial Laser Scanners), TLS(Terrestrial Laser Scanners), RGB-D cameras, 그 외 다른 3D scanners<br>
