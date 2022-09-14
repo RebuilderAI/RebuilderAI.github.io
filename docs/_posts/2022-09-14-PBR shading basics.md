@@ -138,7 +138,29 @@ camera space에서 image space로 투영할 때는 다양한 방법이 있지만
 
 
 ### 정반사(specular) 뜯어보기
+- 프레넬
+- image based lighting(IBL)
 
+
+
+
+
+## PBR workflow
+
+- pbr workflow
+  - https://substance3d.adobe.com/tutorials/courses/the-pbr-guide-part-2
+- obj 파일 구조
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2f23ed9c-d38f-4a29-a5c1-8a6b0a5835d2/Untitled.png)
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3b91e65f-afd4-4612-9580-2eee56446ccc/Untitled.png)
+
+
+
+
+## 우리가 쓰는 3D 복원 방식 (for VRIN business)
+
+- differentiable rendering
 
 
 
@@ -219,20 +241,6 @@ camera space에서 image space로 투영할 때는 다양한 방법이 있지만
 - ## Distribution Function
 
 - Image-based lightning (IBL)
-
-1. **PBR workflow**
-
-- pbr workflow
-  - https://substance3d.adobe.com/tutorials/courses/the-pbr-guide-part-2
-- obj 파일 구조
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2f23ed9c-d38f-4a29-a5c1-8a6b0a5835d2/Untitled.png)
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3b91e65f-afd4-4612-9580-2eee56446ccc/Untitled.png)
-
-1. **우리가 쓰는 3D 복원 방식 (for VRIN business)**
-
-- differentiable rendering
 
 
 
