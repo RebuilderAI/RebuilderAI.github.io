@@ -10,7 +10,7 @@ tags:
   - Image rendering
   - PBR shading
   - graphics
-author: q10
+author: jgnooo
 ---
 
 # 3d 모델에서 반사를 표현하는 방법
@@ -66,6 +66,17 @@ mtl 파일에는 어떤 텍스처 정보를 사용할지가 정의되어 있습�
 ​    _그림 5) mtl 파일 예시_ 
 
 
+
+### 3d 모델을 이미지로 변환하는 방법
+3d 모델을 가지고 이미지를 렌더링하는 가장 기초적인 방법은 단순하게 내가 보는 시점으로 물체를 가져오는 것입니다. 이때 NDC(Normalized Device Coordinate) 좌표계가 많이 사용됩니다.
+
+
+
+
+
+
+
+3d 모델은 포인트클라우드 정보와 폴리곤 정보를 통해 표현됩니다.
 
 
 
