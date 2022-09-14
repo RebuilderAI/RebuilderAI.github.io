@@ -26,10 +26,7 @@ author: q10
 이번 글에서는 실제 3d 모델에 shading이 적용되어 우리 눈에 보이기까지의 과정을 간단하게 설명드리려고 합니다.
 
 ![](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/ff7b5396-1798-44b8-a16b-03eace5e5c6a/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220914%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220914T064601Z&X-Amz-Expires=86400&X-Amz-Signature=59f78092f3405c25aca7ff4b7223ed10e4d554747c4314afc3e88b8ac7340f59&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject)
-
 ​    _그림 1) 리빌더에이아이 스캐닝 예시_
-
-
 
 
 
@@ -38,7 +35,6 @@ author: q10
 눈에 보인다는 것은 3차원 공간을 2차원 이미지로 변환하는 과정입니다. 이 때 내 시점에 맞게 변환하는 과정이 필요하고, 카메라 좌표를 알고 있으면 이를 수학적으로 계산할 수 있습니다.
 
 ![](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/8e58af8d-23b5-48b8-904e-2e94f9cca9cf/2022-09-14_16-03-13.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220914%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220914T070438Z&X-Amz-Expires=86400&X-Amz-Signature=704d977640da97ee0a11d202c703ce63fda643de494d5c195f4d795133ab9bf7&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%222022-09-14_16-03-13.jpg%22&x-id=GetObject)
-
 ​    _그림 2) 2D 이미지와 카메라 좌표계_ 
 
 
@@ -50,18 +46,24 @@ author: q10
 - 이미지: (x, y) 좌표로 표현
 - 3d pointcloud: (x, y, z) 좌표로 표현
 - 3d mesh: (x, y, z) 좌표(pointcloud)와 폴리곤(face) 리스트로 표현
+- obj 파일 구조: mesh.obj, mesh.mtl, texture.png
 
 ![](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/a0653e0d-60da-424f-8746-9986f8695a0b/mesh-pointcloud-faces.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220914%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220914T071756Z&X-Amz-Expires=86400&X-Amz-Signature=fb997759b04b5429d79fe3495b72b2a23d8d4af0c24ab61845ae6ebcc36621e1&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22mesh-pointcloud-faces.png%22&x-id=GetObject)
-
 ​    _그림 3) mesh 표현 방식: pointcloud + faces_ 
 
 
 
-가장 대표적인 3d 모델 포맷인 obj 파일 구조를 뜯어보면 아래와 같습니다.
+가장 대표적인 3d 모델 포맷인 obj 파일 구조를 뜯어보면 아래와 같습니다. 포인트클라우드에 대한 x,y,z 좌표(v)와 어떤 점들을 이을지에 대한 폴리곤 리스트(f)가 정의되어 있음을 확인할 수 있습니다. obj 파일 맨 첫 줄에는 어떤 mtl 파일을 사용할지(mtllib)가 정의되어 있습니다.
+
+![2022-09-14_16-14-14](https://user-images.githubusercontent.com/48865276/190088451-fd6f42e4-a848-4ab4-909c-5b957ca5c40d.jpg)
+![2022-09-14_16-15-15](https://user-images.githubusercontent.com/48865276/190088392-f62dce64-5af2-4a01-bf1c-8a7d63197e5b.jpg)
+​    _그림 4) obj 파일 구조_
 
 
+mtl 파일에는 어떤 텍스처 정보를 사용할지가 정의되어 있습니다.
 
-
+![2022-09-14_16-15-32](https://user-images.githubusercontent.com/48865276/190088595-e6fa0cb3-4d82-45e9-8d7c-cdaa3c747592.jpg)
+​    _그림 5) mtl 파일 예시_ 
 
 
 
