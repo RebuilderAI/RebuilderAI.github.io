@@ -10,7 +10,7 @@ tags:
   - Image rendering
   - PBR shading
   - graphics
-author: Kyuyeol Park
+author: q10
 ---
 
 
@@ -90,14 +90,57 @@ camera space에서 image space로 투영할 때는 다양한 방법이 있지만
 
 ### 빛이란 무엇일까?
 
-![2022-09-14_16-51-03](https://user-images.githubusercontent.com/48865276/190094298-efaf20b7-495c-4a68-8449-adc28bc1a81c.jpg)
+사진의 한 픽셀로 들어오는 빛들은 아래와 같이 나눌 수 있습니다.  
+- scattering(눈에 보이는 최종 빛) = 반사광(reflection) + 투과광(transmission) + 자체발광(illuminance)
+
+투과광과 발광 정도는 일반적이지 않으므로, 보통 표면에서 반사되는 반사광(reflection)만 생각합니다. 반사광은 다시 정반사와 난반사로 알 수 있습니다.  
+- reflection(반사광) = diffuse(난반사) + specular(정반사)
+
+- 눈으로 반사되는 빛의 비율: BSDF = BRDF + BTDF
+- 반사의 정의
+  - scattering(눈에 보이는 최종 빛) = 반사광(reflection) + 투과광(transmission) + 자체발광(illuminance)
+
+### 우리는 반사에 대해 얼마나 알까?
+  - 반사의 정의
+    - scattering(눈에 보이는 최종 빛) = 반사광(reflection) + 투과광(transmission) + 자체발광(illuminance)
+    - diffuse reflection(난반사)와 specular reflection(정반사)
+  - diffuse(난반사)는 표면의 거칠기 때문이 아니다!
+    - 미세표면(microsurface)이 거칠면 산란이 일어난다
+    - 그럼 아주 매끈한 표면은 정반사할까? —> 돌을 아무리 매끄럽게 갈아도 거울이 되지는 않는다
+    - diffuse는 표면 내부로 들어갔다 나온 빛 —> 물체 자체의 색상을 가지고 반사되어 나온다 (물체 자체의 색상: diffuse color = albedo = baseColor)
+    - 표면에서 아무리 산란되어도 이는 diffuse reflection이 아니다
 
 
-![2022-09-14_16-51-03](https://user-images.githubusercontent.com/48865276/190094806-9a73a1e3-ebd9-40c5-a43c-60b6afb019a2.jpg)
+### 빛의 “물리적" 반사 (Physically Based Rendering)
+ - 반사의 두 가지 요소: diffuse, specular
+   - diffuse(분산광, diffusion): 빛을 한 번 흡수했다가 방출
+   - specular(반사광, specular): 빛이 표면에서 튕겨져 나감
+ - specular 반사를 표현하는 법: metallic(금속성)과 roughness(거칠기)
+   - 반사(specular)도 두 가지로 나눌 수 있다: 정반사(smooth)와 난반사(산란, rough)
+   - specular 이미지: (더미데이터, metallic, roughness)로 이루어진 3채널 이미지
+
+- 금속성이 아닌 물체의 specular 반사율(ks)는 보통 4% 정도 (기본 반사율)
+- 반사율이 같아도, roughness(roughness ↔ gloss)에 따라 완전히 다르게 보인다!
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/682abef2-97bd-41df-95a4-598c9056e259/Untitled.png)
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5307240f-19ee-4ee4-9c61-1560c051f8e0/Untitled.png)
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c741d72e-b33d-4acd-9e3f-bd9159f63cdf/Untitled.png)
 
 
 
-![2022-09-14_16-52-29](https://user-images.githubusercontent.com/48865276/190094844-34bd649d-80da-4eef-9ab2-7dd63aaf3576.jpg)
+### 난반사(diffuse) 뜯어보기
+
+사실 정반사는 뜯어볼 게 없습니다.. ㅎㅎ
+
+
+
+
+### 정반사(specular) 뜯어보기
+
+
+
 
 
 
@@ -111,18 +154,22 @@ camera space에서 image space로 투영할 때는 다양한 방법이 있지만
 
 ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d01fa8a9-e64f-46a8-b6de-2bc73099a9d8/Untitled.png)
 
-- 눈으로 반사되는 빛의 비율: BSDF = BRDF + BTDF
-- 반사의 정의
-  - scattering(눈에 보이는 최종 빛) = 반사광(reflection) + 투과광(transmission) + 자체발광(illuminance)
-- 우리는 반사에 대해 얼마나 알까?
-  - 반사의 정의
-    - scattering(눈에 보이는 최종 빛) = 반사광(reflection) + 투과광(transmission) + 자체발광(illuminance)
-    - diffuse reflection(난반사)와 specular reflection(정반사)
-  - diffuse(난반사)는 표면의 거칠기 때문이 아니다!
-    - 미세표면(microsurface)이 거칠면 산란이 일어난다
-    - 그럼 아주 매끈한 표면은 정반사할까? —> 돌을 아무리 매끄럽게 갈아도 거울이 되지는 않는다
-    - diffuse는 표면 내부로 들어갔다 나온 빛 —> 물체 자체의 색상을 가지고 반사되어 나온다 (물체 자체의 색상: diffuse color = albedo = baseColor)
-    - 표면에서 아무리 산란되어도 이는 diffuse reflection이 아니다
+
+
+
+
+![2022-09-14_16-51-03](https://user-images.githubusercontent.com/48865276/190094298-efaf20b7-495c-4a68-8449-adc28bc1a81c.jpg)
+
+
+![2022-09-14_16-51-03](https://user-images.githubusercontent.com/48865276/190094806-9a73a1e3-ebd9-40c5-a43c-60b6afb019a2.jpg)
+
+
+
+![2022-09-14_16-52-29](https://user-images.githubusercontent.com/48865276/190094844-34bd649d-80da-4eef-9ab2-7dd63aaf3576.jpg)
+
+
+
+
 
 ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/94008234-2626-4397-9b8d-77f0e5bbe990/Untitled.png)
 
@@ -133,22 +180,7 @@ camera space에서 image space로 투영할 때는 다양한 방법이 있지만
 
 ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8f41ea7b-2f56-4143-a3c3-caff8e348f97/Untitled.png)
 
-1. 빛의 “물리적" 반사 (Physically Based Rendering)
-   - 반사의 두 가지 요소: diffuse, specular
-     - diffuse(분산광, diffusion): 빛을 한 번 흡수했다가 방출
-     - specular(반사광, specular): 빛이 표면에서 튕겨져 나감
-   - specular 반사를 표현하는 법: metallic(금속성)과 roughness(거칠기)
-     - 반사(specular)도 두 가지로 나눌 수 있다: 정반사(smooth)와 난반사(산란, rough)
-     - specular 이미지: (더미데이터, metallic, roughness)로 이루어진 3채널 이미지
 
-- 금속성이 아닌 물체의 specular 반사율(ks)는 보통 4% 정도 (기본 반사율)
-- 반사율이 같아도, roughness(roughness ↔ gloss)에 따라 완전히 다르게 보인다!
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/682abef2-97bd-41df-95a4-598c9056e259/Untitled.png)
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5307240f-19ee-4ee4-9c61-1560c051f8e0/Untitled.png)
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c741d72e-b33d-4acd-9e3f-bd9159f63cdf/Untitled.png)
 
 - Lambertian surface
 - phong shading
