@@ -110,6 +110,9 @@ camera space에서 image space로 투영할 때는 다양한 방법이 있지만
     - 표면에서 아무리 산란되어도 이는 diffuse reflection이 아니다
 
 
+
+![2022-09-14_17-17-23](https://user-images.githubusercontent.com/48865276/190099999-ba6f98df-56f0-44da-aec3-bc8020d1e886.jpg)
+
 ![2022-09-14_17-14-51](https://user-images.githubusercontent.com/48865276/190099424-ce7469e8-ab41-4090-b5ad-a6683cd7fef6.jpg)    _그림 8) 빛의 정반사와 난반사_ 
 
 
