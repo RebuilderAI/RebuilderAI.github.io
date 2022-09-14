@@ -4,14 +4,15 @@ layout: post
 title: 3d 모델에서 반사를 표현하는 방법
 subtitle: 기초부터 보는 PBR shading
 description: PBR shading basics
-image:  https://s3.us-west-2.amazonaws.com/secure.notion-static.com/5307240f-19ee-4ee4-9c61-1560c051f8e0/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220914%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220914T064056Z&X-Amz-Expires=86400&X-Amz-Signature=e904427f531cc4830ee0e174ea50aa534a4906bf65c0158c7c11d5cd00ab14a4&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject
+image: https://user-images.githubusercontent.com/48865276/190091259-6b0d2185-fe10-441b-a048-261af8fd2353.jpg
 category: 2D, 3D, shading, graphics
 tags:
   - Image rendering
   - PBR shading
   - graphics
-author: jgnooo
+author: Kyuyeol Park
 ---
+
 
 # 3d 모델에서 반사를 표현하는 방법
 
@@ -26,7 +27,7 @@ author: jgnooo
 이번 글에서는 실제 3d 모델에 shading이 적용되어 우리 눈에 보이기까지의 과정을 간단하게 설명드리려고 합니다.
 
 ![](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/ff7b5396-1798-44b8-a16b-03eace5e5c6a/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220914%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220914T064601Z&X-Amz-Expires=86400&X-Amz-Signature=59f78092f3405c25aca7ff4b7223ed10e4d554747c4314afc3e88b8ac7340f59&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject)
-​    _그림 1) 리빌더에이아이 스캐닝 예시_
+    _그림 1) 리빌더에이아이 스캐닝 예시_
 
 
 
@@ -35,7 +36,7 @@ author: jgnooo
 눈에 보인다는 것은 3차원 공간을 2차원 이미지로 변환하는 과정입니다. 이 때 내 시점에 맞게 변환하는 과정이 필요하고, 카메라 좌표를 알고 있으면 이를 수학적으로 계산할 수 있습니다.
 
 ![](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/8e58af8d-23b5-48b8-904e-2e94f9cca9cf/2022-09-14_16-03-13.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220914%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220914T070438Z&X-Amz-Expires=86400&X-Amz-Signature=704d977640da97ee0a11d202c703ce63fda643de494d5c195f4d795133ab9bf7&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%222022-09-14_16-03-13.jpg%22&x-id=GetObject)
-​    _그림 2) 2D 이미지와 카메라 좌표계_ 
+    _그림 2) 2D 이미지와 카메라 좌표계_ 
 
 
 
@@ -49,7 +50,7 @@ author: jgnooo
 - obj 파일 구조: mesh.obj, mesh.mtl, texture.png
 
 ![](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/a0653e0d-60da-424f-8746-9986f8695a0b/mesh-pointcloud-faces.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220914%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220914T071756Z&X-Amz-Expires=86400&X-Amz-Signature=fb997759b04b5429d79fe3495b72b2a23d8d4af0c24ab61845ae6ebcc36621e1&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22mesh-pointcloud-faces.png%22&x-id=GetObject)
-​    _그림 3) mesh 표현 방식: pointcloud + faces_ 
+    _그림 3) mesh 표현 방식: pointcloud + faces_ 
 
 
 
@@ -57,42 +58,50 @@ author: jgnooo
 
 ![2022-09-14_16-14-14](https://user-images.githubusercontent.com/48865276/190088451-fd6f42e4-a848-4ab4-909c-5b957ca5c40d.jpg)
 ![2022-09-14_16-15-15](https://user-images.githubusercontent.com/48865276/190088392-f62dce64-5af2-4a01-bf1c-8a7d63197e5b.jpg)
-​    _그림 4) obj 파일 구조_
+    _그림 4) obj 파일 구조_
 
 
 mtl 파일에는 어떤 텍스처 정보를 사용할지가 정의되어 있습니다.
 
 ![2022-09-14_16-15-32](https://user-images.githubusercontent.com/48865276/190088595-e6fa0cb3-4d82-45e9-8d7c-cdaa3c747592.jpg)
-​    _그림 5) mtl 파일 예시_ 
+    _그림 5) mtl 파일 예시_ 
 
 
 
 ### 3d 모델을 이미지로 변환하는 방법
-3d 모델을 가지고 이미지를 렌더링하는 가장 기초적인 방법은 단순하게 내가 보는 시점으로 물체를 가져오는 것입니다. 이때 NDC(Normalized Device Coordinate) 좌표계가 많이 사용됩니다.
+3d 모델을 가지고 이미지를 렌더링하는 가장 기초적인 방법은 단순하게 내가 보는 시점으로 물체를 가져오는 것입니다. 실제 절대좌표 공간(world space)에서 카메라를 원점으로 하는 좌표계(camera space)로 좌표를 변환한 후, 이미지 평면에 그대로 투영하면 됩니다.
+
+![2022-09-14_16-35-17](https://user-images.githubusercontent.com/48865276/190090816-c0ab0032-af5a-4f40-9557-db119b9d1f0b.jpg)
+    _그림 6) 카메라 좌표변환_ 
+
+camera space에서 image space로 투영할 때는 다양한 방법이 있지만, 아래처럼 NDC(Normalized Device Coordinate) 좌표계로 변환하는 것이 쉽습니다. 사각뿔을 정육면체 형태로 좌표변환하면 ndc 좌표계로 변환되며, z축을 기준으로 꾹 누르면 우리가 보는 이미지가 나오게 됩니다. 이 때 z축 기준 앞에 있는 점이나 폴리곤을 이미지에 먼저 그리면 됩니다.  
+게임 등에서는 일반적으로 ndc 좌표계로 변환 전 사각뿔의 가장 가까운 평면(near plane), 가장 먼 평면(far plane)과의 거리를 정해놓습니다. 그래서 게임에서 일정 거리 이상 떨어지면 갑자기 물체가 없어질 때도 있습니다.
+
+![2022-09-14_16-40-48](https://user-images.githubusercontent.com/48865276/190092097-446e60ac-6a55-4aa1-bc10-f1c4fd1e85c7.jpg)
+    _그림 7) NDC coordinates_ 
+
+
+
+형상을 렌더링하는 방법은 이게 끝이지만, 이렇게만 표현하게 되면 모델의 색상을 그대로 이미지에 투영하기 때문에, 그림자나 재질 표현이 불가능합니다. 따라서 shading이 필요해지게 됩니다. shading은 반사성 재질과 그림자를 고려해서 색상을 입히는 방법입니다.
+
+
+
+## 빛의 반사
+
+### 빛이란 무엇일까?
+
+![2022-09-14_16-51-03](https://user-images.githubusercontent.com/48865276/190094298-efaf20b7-495c-4a68-8449-adc28bc1a81c.jpg)
+
+
+![2022-09-14_16-51-03](https://user-images.githubusercontent.com/48865276/190094806-9a73a1e3-ebd9-40c5-a43c-60b6afb019a2.jpg)
+
+
+
+![2022-09-14_16-52-29](https://user-images.githubusercontent.com/48865276/190094844-34bd649d-80da-4eef-9ab2-7dd63aaf3576.jpg)
 
 
 
 
-
-
-
-3d 모델은 포인트클라우드 정보와 폴리곤 정보를 통해 표현됩니다.
-
-
-
-- 눈에 보인다 —> 3차원 형상을 2차원 이미지로 변환 (내 시점에 맞게)
-- 3d 모델이란 무엇인가?
-  - 이미지: (x, y) 좌표로 표현
-  - 3d pointcloud: (x, y, z) 좌표로 표현
-  - 3d mesh: (x, y, z) 좌표와 폴리곤(face) 리스트로 표현
-  - 3d 모델 뜯어보기: obj 파일 구조
-    - mesh.obj, mesh.mtl, texture.png
-- 3d 모델을 이미지로 변환하는 방법
-  - 3d pointcloud —> ndc 좌표계로 변환 —> 앞에 있는 순서대로 덮어씌우기!
-    - NDC(Normalized Device Coordinate)
-    - 카메라 좌표계 (recap.) —> ndc 좌표계로의 변환 행렬 계산
-  - 하지만 그림자나 재질 표현이 불가능함 —> shading이 필요
-    - shading: 반사성 재질과 그림자를 고려해서 색상을 입히는 방법
 
 1. 빛의 반사
    - 빛이란 무엇인가
